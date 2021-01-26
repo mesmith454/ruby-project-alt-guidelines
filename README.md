@@ -19,8 +19,32 @@ You will be building a **Command Line CRUD App** that uses a database to persist
 Your **minimum requirements** for this project are to build a Command Line App that:
 
 1. Contains at least three models with corresponding tables, including a join table.
+    User class, Inventory class, Item class (each w/ own table) Item class will have items precreated to select from 
 2. Accesses a Sqlite3 database using ActiveRecord.
+  model tables (users, inventories, items)
 3. Has a CLI that allows users to interact with your database as defined by your _user stories_ (minimum of four; one for each CRUD action).
+  -A user initialized with 100 gold and an empty inventory
+    -A user knows about their items through inventory. 
+  -A user can add an item to their inventory (which decrements gold and inventory space)
+  -A user can rename an item
+  -A user can "drop" (delete) an item
+  -A user can view a list of all items 
+
+  Bonus ideas: A user can combine items to create a new one (from a premade list)
+               A user can view a list of all items owned
+               A user can "sell" or "sell all" to get a percentage of the items' value back
+
+--------------                      --------------                      -------------
+|            |  has one             |            |  contains many       |           |
+|  User      |   ---->              | Inventory  |  ---->               |  Item     |
+|            |   <----              |            |  <----               |           |
+|            |  belongs to one      |            |  belongs to through  |           |
+--------------                      --------------                      -------------
+
+Users table will have user          Invs table will have                Items table will have 
+name and ID                         columns: ID, item id, count,           ID, name, type, value
+                                    user Id
+
 4. Uses good OO design patterns. You should have separate models for your runner and CLI interface.
 
 ---
