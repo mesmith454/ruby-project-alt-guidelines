@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
         @@all << self
     end
    
-    def initialize (name, inventory)
+    def initialize (name)
         @name = name
         @inventory = []
 

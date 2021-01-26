@@ -7,7 +7,7 @@ class Item
         @@all << self
     end
 
-    def initialize(:name, :type, :rarity, :value)
+    def initialize(name, type, rarity, value)
         @name = name
         @type = type
         @rarity = rarity
