@@ -1,15 +1,8 @@
 class Inventory < ActiveRecord::Base
-    attr_reader :user_id
-    @@all = []
-
-    def self.save
-        @@all << self
-    end
-
-    def initialize(user_id)
-        @user_id = user_id
-
-        save
-    end
+    
+#   def add_to_inventory(user_id)
+#     Item.new_item
+#     @user_id = user_id
+#   end
 
 end

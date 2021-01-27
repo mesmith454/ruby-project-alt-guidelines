@@ -1,24 +1,14 @@
 class User < ActiveRecord::Base
-    attr_reader :name, :gold, :inventory, :item
-    @@all = []
-
-    def self.save
-        @@all << self
-    end
-   
-    def initialize (name)
-        @name = name
-        @inventory = []
-
-        save
+    def self.open_inventory
+        Inventory.new(self)
     end
 
     # def add_item(item)
-       #inventory << Item.all.select(item)
+    #  
     # end
 
     # def drop_item(item)
-     #   inventory(item).pop or something like that
+     #   inventory.find(item).pop or something like that
     # end
 
     # def rename_weapon(item)

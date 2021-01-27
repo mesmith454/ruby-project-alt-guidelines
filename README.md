@@ -124,13 +124,13 @@ Before you start building, take a look at the files you have available in this r
 
 This should take approximately **3/4 of a day**.
 
-#### Data Models
+#### Data Models   X
 
 Make a new file for each model in your `lib` folder. What's the naming convention for a model filename? Check out previous labs for a reminder. Remember that `activerecord` gem from our `Gemfile`? Make sure that every model inherits from `ActiveRecord::Base`.
 
 Be sure to include the relationships between your models. The [Rails Guides ActiveRecord Documentation](http://guides.rubyonrails.org/association_basics.html) is a great source if you get stuck! Check out the `has_many :through` section when setting up your many-to-many relationship.
 
-#### Migrations
+#### Migrations    X
 
 Create your database and migrations in the terminal (keeping in mind that you have Rake available to you! Run `rake -T` in your terminal for a refresher.) What are the naming conventions for migration files and table names?
 
@@ -156,7 +156,7 @@ The first part is simple: we added the a restaurant to our `restaurants` table. 
 
 ![celebration](https://media.giphy.com/media/Is1O1TWV0LEJi/giphy.gif)
 
-#### Seeding the Database
+#### Seeding the Database IP
 
 At this point, we could continue adding items to our database through the console, but let's be real. There are hundreds of thousands of restaurants, if not more. Entering them individually would take forever!! There must be a better way...
 
