@@ -1,23 +1,21 @@
 require 'pry'
-class CommandLineInterface
-    def print_options
-        puts "Please select a number:"
-        puts "1. Create a new user "
-        puts "2. View all available items"
-        puts "3. View current inventory"
-        puts "4. Add an item"
-        puts "5. Drop an item"
-        puts "6. Rename an item"
-    end
+require TTY::Prompt.new   ###https://github.com/piotrmurach/tty-prompt
 
-    def take_input
-        user_input = gets.chomp
-    end
+class CommandLineInterface
+
+choices = [
+    {name: "Create a new user", value: 1},
+    {name: "View all available items", value: 2},
+    {name: "View current inventory", value: 3},
+    {name: "Add an item", value: 4},
+    {name: "Drop an item", value: 5},
+    {name: "Rename an item", value: 6}
+]
 
     def greet
         puts "Welcome to the Inventory Manager"
-        puts "What would you like to do? Input a number." 
-        print_options
-        take_input
+        prompt.enum_select("What would you like to do?", choices, cycle: true)
+        
+        
     end
 end
