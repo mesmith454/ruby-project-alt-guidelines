@@ -156,7 +156,7 @@ The first part is simple: we added the a restaurant to our `restaurants` table. 
 
 ![celebration](https://media.giphy.com/media/Is1O1TWV0LEJi/giphy.gif)
 
-#### Seeding the Database IP
+#### Seeding the Database X
 
 At this point, we could continue adding items to our database through the console, but let's be real. There are hundreds of thousands of restaurants, if not more. Entering them individually would take forever!! There must be a better way...
 
@@ -196,7 +196,7 @@ Okay, so we've got our databases; we've got our models; and we've got our relati
 
 First things first, open up the run file and create a method that greets our app user. Then, let's call that method.
 
-```ruby
+```ruby   X
 def greet
   puts 'Welcome to Felp, the best resource for restaurant information in the world!'
 end

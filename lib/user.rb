@@ -1,38 +1,48 @@
 class User < ActiveRecord::Base
-    def self.open_inventory
-        Inventory.new(self)
+    has_many :inventory
+
+    def save_user(name)
+        sql = <<-SQL INSERT INTO users(name)
+        VALUES(?)
+        SQL
+        
+        DB[:conn].execute(sql, self.name)
     end
 
-    # def add_item(item)
-    #  
-    # end
+    def create_user #functioning - create
+        puts "Please enter a name:"
+        name = gets.chomp
 
-    # def drop_item(item)
-     #   inventory.find(item).pop or something like that
-    # end
+        User.create(name: name)
+        puts name
+        save_user
+    end
 
-    # def rename_weapon(item)
-        #if type = weapon
-         #   name = user.chomp
-         #end
-    # end
+    def view_avail_items #read
+        Inventory.avail_items
+    end
 
-    # def view_inv
-        #@inventory
-    # end
+    def self.add_item #update (user inventory)
+        Inventory.add_to_user
+    end
 
-    # def view_item(item)
-        #item.inspect
-    # end
+    def self.open_inv #read
+        Inventory.char_inv
+    end
+
+    def search_item_by_name(name)
+        Inventory.search_items
+    end
+
+    def self.drop_item(item_id) #delete
+        Inventory.remove_from_user
+    end
+
+    def self.rename_item(name, new_name)
+        Inventory.rename_item
+    end
 
 
-
-#### bernus
-    #sell all items for percentage of value back
-    #combine existing items into new
-    #rare items' value multiplied by rarity rank
-    #inv has lmtd space and will puts a certain message when certain methods are called on an empty inventory
-    #gold and purchase stretch
 end
 
 
