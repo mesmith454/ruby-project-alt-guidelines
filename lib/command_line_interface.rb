@@ -1,6 +1,7 @@
 require 'pry'
 
 class CommandLineInterface
+    
     def new_char(name) #c
         User.create
     end
@@ -38,13 +39,24 @@ class CommandLineInterface
     end
 
     def selection_cycle
-        puts "CREATE user"
-        puts "VIEW_ALL items"
-        puts "VIEW_INVentory"
-        puts "ADD item"
-        puts "RENAME item"
-        puts "DROP item"
-        puts "EXIT"
+        pastel = Pastel.new
+
+        puts pastel.blue("CREATE user")
+        puts pastel.blue("VIEW_ALL items")
+        puts pastel.blue("VIEW_INVentory")
+        puts pastel.blue("ADD item")
+        puts pastel.blue("RENAME item")
+        puts pastel.blue("DROP item")
+        puts pastel.blue("EXIT")
+    end
+
+    def render_table #see the problem here is this only works for hard coded premade values. doesn't REALLY effect function, but might get a little confusing. hammer that out later
+        table = TTY::Table.new(header: [">Name<", ">Type<", ">Rarity<", ">Value<"], rows: [["The Idiot's Handbook", "Book", "1", "1"],["Cheese", "Weapon", "3", "10"],
+        ["Mana Potion", "Consumable", "2", "0"],
+        ["Helmet", "Equipment", "1", "3"],
+        ["UltraSuperRad Thingamadoo", "Trinket", "5", "5"],
+        ["That one thing", "Trinket", "4", "13"]])
+        puts table.render
     end
 
     def greet
@@ -59,7 +71,8 @@ class CommandLineInterface
                 new_char(name)
             
             elsif ans == "VIEW_ALL"
-                puts Item.all.inspect
+                # puts Item.all.inspect
+                render_table
                 
             elsif ans == "VIEW_INV"
                 puts "Please input user id:"
