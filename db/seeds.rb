@@ -21,4 +21,4 @@ Inventory.create(user_id: 3, item_id: 1)
 Inventory.create(user_id: 4, item_id: 1)
 Inventory.create(user_id: 5, item_id: 1)
 Inventory.create(user_id: 6, item_id: 1)
-Inventory.create(user_id: 7, item_id: 1)
+
